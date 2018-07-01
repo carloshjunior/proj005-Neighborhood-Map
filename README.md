@@ -16,4 +16,4 @@ Este site permite .
 
 ## Como executar
 * Para executar o relatório você precisa de um Browser;
-* Inicie o usando o comando na máquina virtual 'index.html'
+* Inicie a página 'index.html' usando o Navegador de sua preferência.
