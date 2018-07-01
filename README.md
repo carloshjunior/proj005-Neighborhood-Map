@@ -15,5 +15,4 @@ Este site permite .
 * Flickr API
 
 ## Como executar
-* Para executar o relatório você precisa de um Browser;
 * Inicie a página 'index.html' usando o Navegador de sua preferência.
