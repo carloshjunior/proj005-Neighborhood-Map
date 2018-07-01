@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhood Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">About</h4>
+                <p class="text-muted">Project 'Neighborhood Map' develop by Carlos H Junior
+                for Udacity course Nanodegree Web Developer Full Stack module 05.</p>
+              </div>
+              <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Tecnologies</h4>
+                <p class="text-muted">
+                  HTML5, CSS3, JavaScript, JQuery, Bootstrap & KnockoutJS.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="container d-flex">
+            <h1>Neighborhood Map: New Zealand</h1>
+            <div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarHeader" aria-controls="navbarHeader"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <nav>
+          <h4>Search</h4>
+          <input type="search" id="search-input" placeholder="Seach" data-bind="textInput: filteredText">
+          <hr>
+          <ul class="places-list" data-bind="foreach: places">
+  					<p class="places" data-bind="text: title, click: $parent.showPlace,  visible: show"></p>
+  				</ul>
+        </nav>
+        <div id="map"></div>
+      </main>
+    </div>
+    <script src="js/lib/knockout-3.2.0.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <!-- Bootstrap core JavaScript ======================================== -->
+    <!-- Placed at the end of the document so the pages load faster ========-->
+    <script src="https://apis.google.com/js/platform.js?onload=start"> </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <!-- Google Maps ====================================================== -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRNyQ71ZBmj02Yql7wlZ4WJneYcgTvwBA&libraries=places,geometry&callback=initMap" async defer></script>
+  </body>
+</html>
