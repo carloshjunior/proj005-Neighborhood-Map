@@ -55,7 +55,7 @@ function initMap() {
   // create a map object and get map from DOM for display
   map = new google.maps.Map(document.getElementById("map"), {
       center: center,
-      zoom: 7
+      zoom: 6
   });
   createMarkersForPlaces();
 }
@@ -89,10 +89,7 @@ function populateInfoWindow(marker, infoWindow) {
   if (infoWindow.marker != marker) {
     infoWindow.marker = marker;
     getFlickRPhoto(marker, infoWindow);
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-    setTimeout(function() {
-      marker.setAnimation(null);
-    }, 2000);
+    defineAnimation(marker);
     infoWindow.open(map, marker);
     infoWindow.addListener('closeclick', function() {
       infoWindow.setMarker = null;
@@ -100,6 +97,14 @@ function populateInfoWindow(marker, infoWindow) {
   }
 }
 
+// animation
+function defineAnimation(marker){
+  marker.setAnimation(google.maps.Animation.BOUNCE);
+  setTimeout(function() {
+    marker.setAnimation(null);
+  }, 2000);
+
+}
 
 // get FlickR Photo
 function getFlickRPhoto(marker, infoWindow){
@@ -129,6 +134,10 @@ function getFlickRPhoto(marker, infoWindow){
       infoWindow.setContent('<div class="title">' + marker.title +
         '</div><img class="flickrImg" src=\"' + imageUrl + '\">');
     };
+  }).fail(function(error){
+    infoWindow.setContent('<div class="title">' + marker.title +
+      '</div><p>failed to load FlickR image.</p>');
+    console.log(error);
   });
 }
 
@@ -181,6 +190,11 @@ var ViewModel = function(){
       google.maps.event.trigger(locations.marker, 'click');
   };
 
+}
+
+// Treatment Error on load map.
+function mapError() {
+    alert("There was a problem loading Map. Please try again");
 }
 
 ViewModel = new ViewModel();

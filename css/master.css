@@ -5,6 +5,7 @@
 html, body{
   font-family: Exo,calibri,sans-serif;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-size: 1em;
@@ -22,8 +23,8 @@ h1{
 
 nav{
   margin: 10px;
-  float: left;
-  width: 25%;
+  position: absolute;
+  width: 200px;
 }
 
 article ul, nav ul{
@@ -33,7 +34,7 @@ article ul, nav ul{
 
 article{
   float: right;
-  width: 80%;
+  width: 100%;
 }
 
 li{
@@ -42,14 +43,30 @@ li{
 
 .container {
   height: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 
 #map {
   height: 80%;
   width: 70%;
+  margin: 0;
+  padding: 0;
   position: absolute;
-  right: 15px;
+  right: 0;
+}
+
+@media screen and (max-width: 500px) {
+  nav{
+    width: 100%;
+    margin-top: 95%;
+  }
+
+  #map {
+    height: 50%;
+    width: 100%;
+  }
 }
 
 .flickrImg{
